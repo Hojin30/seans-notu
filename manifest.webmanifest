@@ -1,0 +1,15 @@
+{
+  "name": "Seans Notu",
+  "short_name": "SeansNotu",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0c10",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAF0lEQVR4nO3BMQEAAADCoPdPbQ8HFAAAAAAAAAAA4GkAAdxw8o8AAAAASUVORK5CYII=",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}
