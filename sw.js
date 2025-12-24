@@ -1,4 +1,4 @@
-const CACHE_NAME = "seansnotu-cache-v2";
+const CACHE_NAME = "seansnotu-cache-v3";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./sw.js"];
 
 self.addEventListener("install", (event) => {
