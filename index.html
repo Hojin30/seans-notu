@@ -7,204 +7,151 @@
   <meta name="theme-color" content="#111111" />
   <link rel="manifest" href="manifest.webmanifest">
   <style>
-    :root { --bg:#0b0c10; --card:#12131a; --txt:#f2f3f5; --muted:#a9abb7; --b:#2a2c38; --acc:#2a2fff; }
-    *{box-sizing:border-box;font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
-    body{margin:0;background:linear-gradient(180deg,#0b0c10,#07080b);color:var(--txt); }
-    header{padding:18px 16px;border-bottom:1px solid var(--b);position:sticky;top:0;background:rgba(11,12,16,.92);backdrop-filter: blur(8px);z-index:10}
-    h1{margin:0;font-size:18px;letter-spacing:.2px}
-    main{max-width:1100px;margin:0 auto;padding:16px;display:grid;gap:14px}
-    .grid{display:grid;gap:12px}
-    @media(min-width:980px){ .grid{grid-template-columns: 1fr 1fr;} }
-    .card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:14px;box-shadow: 0 10px 30px rgba(0,0,0,.25)}
-    label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
-    input, select, textarea{
-      width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--b);
-      background:#0e0f15; color:var(--txt); outline:none;
-    }
-    textarea{min-height:110px;resize:vertical;line-height:1.35}
-    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .row > * {flex:1}
-    .btn{
-      padding:12px 12px; border-radius:12px; border:1px solid var(--b);
-      background:#151725; color:var(--txt); cursor:pointer; font-weight:700;
-    }
-    .btn.primary{background:var(--acc);border-color:var(--acc)}
-    .btn.danger{background:#35141a;border-color:#5a1f2a}
-    .btn:active{transform: translateY(1px)}
+    :root{--bg:#0b0c10;--card:#12131a;--txt:#f2f3f5;--muted:#a9abb7;--b:#2a2c38;--acc:#2a2fff}
+    *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    body{margin:0;background:linear-gradient(180deg,#0b0c10,#07080b);color:var(--txt)}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,12,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--b);padding:14px 14px}
+    h1{margin:0;font-size:18px}
     .muted{color:var(--muted);font-size:12px;line-height:1.4}
-    .list{display:grid;gap:10px}
-    .item{border:1px solid var(--b);border-radius:14px;padding:12px;background:#0e0f15}
-    .item h3{margin:0 0 6px;font-size:14px}
-    .item .meta{font-size:12px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
-    pre{
-      margin:10px 0 0; white-space:pre-wrap; word-wrap:break-word;
-      background:#0b0c10;border:1px solid var(--b); border-radius:12px; padding:10px; color:#e9e9ef;
-      font-size:12px; line-height:1.35;
-    }
-    .toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#10121b;border:1px solid var(--b);
-      padding:10px 12px;border-radius:999px;font-size:13px;color:var(--txt);display:none;z-index:999}
-    .hr{height:1px;background:var(--b);margin:10px 0}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#0e0f15;border:1px solid var(--b);font-size:12px;color:var(--muted)}
-    .small{font-size:12px}
-    .twoBtns{display:flex;gap:10px;flex-wrap:wrap}
-    .hint{border:1px dashed var(--b);border-radius:14px;padding:10px;background:#0b0c10}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap}
+    main{max-width:980px;margin:0 auto;padding:14px;display:grid;gap:12px}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
     .tab{padding:10px 12px;border-radius:999px;border:1px solid var(--b);background:#0e0f15;color:var(--muted);cursor:pointer;font-weight:700}
     .tab.active{background:#151725;color:var(--txt);border-color:#3b3d50}
+    .grid{display:grid;gap:12px}
+    @media(min-width:920px){.grid{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+    input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--b);background:#0e0f15;color:var(--txt);outline:none}
+    textarea{min-height:110px;resize:vertical;line-height:1.35}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .row>*{flex:1}
+    .btn{padding:12px;border-radius:12px;border:1px solid var(--b);background:#151725;color:var(--txt);cursor:pointer;font-weight:800}
+    .btn.primary{background:var(--acc);border-color:var(--acc)}
+    .btn.danger{background:#35141a;border-color:#5a1f2a}
+    .btn:active{transform:translateY(1px)}
+    .twoBtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .hide{display:none}
+    .list{display:grid;gap:10px;margin-top:10px}
+    .item{background:#0e0f15;border:1px solid var(--b);border-radius:14px;padding:12px}
+    .item h3{margin:0 0 6px;font-size:14px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+    pre{margin:10px 0 0;white-space:pre-wrap;background:#0b0c10;border:1px solid var(--b);border-radius:12px;padding:10px;font-size:12px}
+    .toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#10121b;border:1px solid var(--b);
+      padding:10px 12px;border-radius:999px;font-size:13px;color:var(--txt);display:none;z-index:999}
   </style>
 </head>
 <body>
 <header>
-  <div class="row" style="gap:12px">
-    <div style="flex:2">
-      <h1>Seans Notu (Uygulama)</h1>
-      <div class="muted">Kayıtlar cihazında saklanır. Prompt üretir, Word indirir, PDF için yazdırır.</div>
-    </div>
-    <div style="flex:1;display:flex;justify-content:flex-end;gap:10px;align-items:center">
-      <span class="pill" id="installHint">📲 Ana ekrana eklenebilir</span>
-      <button class="btn" id="exportBtn">Yedekle (JSON)</button>
-    </div>
-  </div>
+  <h1>Seans Notu</h1>
+  <div class="muted">Kayıtlar cihazında saklanır. Prompt üretir, Word indirir, PDF için yazdırır.</div>
 
-  <div class="tabs" style="margin-top:12px">
-    <button class="tab active" data-tab="daily">Günlük Seans</button>
-    <button class="tab" data-tab="report">Rapor / Çıktı</button>
-    <button class="tab" data-tab="settings">Ayarlar</button>
+  <div class="tabs">
+    <button class="tab active" data-tab="daily">Günlük</button>
+    <button class="tab" data-tab="report">Rapor/Çıktı</button>
+    <button class="tab" data-tab="backup">Yedek</button>
   </div>
 </header>
 
 <main>
-
-  <!-- TAB: Günlük Seans -->
-  <section id="tab-daily" class="grid">
+  <!-- Günlük -->
+  <section id="daily" class="grid">
     <section class="card">
       <div class="row">
         <div>
           <label>Öğrenci</label>
-          <select id="studentSelect"></select>
+          <select id="student"></select>
         </div>
         <div>
           <label>Tarih</label>
-          <input id="dateInput" type="date" />
+          <input id="date" type="date">
         </div>
       </div>
 
       <div class="row">
         <div>
           <label>Yeni öğrenci ekle</label>
-          <input id="newStudentInput" placeholder="Örn: Ege" />
+          <input id="newStudent" placeholder="Örn: Ege">
         </div>
-        <div style="flex:0.7">
+        <div style="flex:.6">
           <label>&nbsp;</label>
-          <button class="btn" id="addStudentBtn">Ekle</button>
+          <button class="btn" id="addStudent">Ekle</button>
         </div>
-        <div style="flex:0.7">
+        <div style="flex:.6">
           <label>&nbsp;</label>
-          <button class="btn danger" id="removeStudentBtn">Sil</button>
+          <button class="btn danger" id="delStudent">Sil</button>
         </div>
       </div>
 
       <label>Çalışılan konular (madde madde)</label>
-      <textarea id="topicsInput" placeholder="- Dikkat egzersizleri&#10;- Çalışma belleği&#10;- Okuduğunu anlama"></textarea>
+      <textarea id="topics" placeholder="- Dikkat egzersizleri&#10;- Okuduğunu anlama"></textarea>
 
       <label>Kısa gözlem</label>
-      <textarea id="obsInput" placeholder="Örn: Dikkatini sürdürme süresi arttı; yönerge takibinde zaman zaman tekrar ihtiyacı oldu."></textarea>
+      <textarea id="obs" placeholder="Örn: Dikkatini sürdürme süresi arttı..."></textarea>
 
       <label>Bir sonraki odak / hedef</label>
-      <textarea id="nextInput" placeholder="Örn: Dürtü kontrolü ve bekleme; metin anlama için 5N1K."></textarea>
+      <textarea id="next" placeholder="Örn: Dürtü kontrolü, bekleme..."></textarea>
 
-      <div class="twoBtns" style="margin-top:12px">
-        <button class="btn primary" id="saveBtn">Kaydet</button>
-        <button class="btn" id="makePromptBtn">Günlük Prompt Oluştur + Kopyala</button>
-        <button class="btn" id="clearBtn">Temizle</button>
+      <div class="twoBtns">
+        <button class="btn primary" id="save">Kaydet</button>
+        <button class="btn" id="copyDaily">Günlük Prompt Kopyala</button>
+        <button class="btn" id="clear">Temizle</button>
       </div>
 
-      <div class="hr"></div>
-      <div class="hint">
-        <div class="muted">
-          <b>Not:</b> “Günlük Prompt”, senin burada yazdığın ham veriyi ChatGPT’ye tek seferde verip
-          <b>akademik + samimi + özgün</b> bir seans notu alman için hazırlanır.
-        </div>
-      </div>
+      <label>Günlük Prompt Önizleme</label>
+      <pre id="dailyPreview"></pre>
     </section>
 
     <section class="card">
       <div class="row">
         <div>
           <label>Arama</label>
-          <input id="searchInput" placeholder="Öğrenci adı / tarih ara (örn: 2025-12)" />
+          <input id="search" placeholder="Örn: Ege veya 2025-12">
         </div>
-        <div style="flex:0.8">
+        <div style="flex:.8">
           <label>Sıralama</label>
-          <select id="sortSelect">
+          <select id="sort">
             <option value="new">En yeni</option>
             <option value="old">En eski</option>
           </select>
         </div>
       </div>
 
-      <div class="row">
-        <div class="muted small" id="countInfo"></div>
-        <div style="display:flex;justify-content:flex-end;gap:10px">
-          <button class="btn" id="importBtn">İçe Aktar</button>
-          <input type="file" id="importFile" accept="application/json" style="display:none" />
-          <button class="btn danger" id="wipeBtn">Tümünü Sil</button>
-        </div>
-      </div>
-
-      <div class="list" id="sessionList"></div>
-    </section>
-
-    <section class="card" style="grid-column:1/-1">
-      <h2 style="margin:0 0 8px;font-size:16px">Günlük Prompt Önizlemesi</h2>
-      <div class="muted">“Günlük Prompt Oluştur + Kopyala” dediğinde buradaki metin panoya kopyalanır.</div>
-      <pre id="promptPreview" style="margin-top:10px"></pre>
+      <div class="muted" id="count"></div>
+      <div class="list" id="list"></div>
     </section>
   </section>
 
-  <!-- TAB: Rapor / Çıktı -->
-  <section id="tab-report" class="hide">
+  <!-- Rapor -->
+  <section id="report" class="hide">
     <section class="card">
-      <h2 style="margin:0 0 8px;font-size:16px">Rapor / Çıktı (Öğrenci + Tarih Aralığı)</h2>
-      <div class="muted">Buradan seçtiğin aralıktaki seansları tek promptta toparlayabilir veya Word çıktısı indirebilirsin.</div>
-
-      <div class="row" style="margin-top:10px">
+      <div class="row">
         <div>
           <label>Öğrenci</label>
-          <select id="reportStudentSelect"></select>
+          <select id="rStudent"></select>
         </div>
         <div>
           <label>Başlangıç</label>
-          <input id="fromDate" type="date" />
+          <input id="from" type="date">
         </div>
         <div>
           <label>Bitiş</label>
-          <input id="toDate" type="date" />
+          <input id="to" type="date">
         </div>
       </div>
 
       <div class="row">
         <div>
           <label>Rapor tipi</label>
-          <select id="reportType">
+          <select id="rType">
             <option value="weekly">Haftalık özet</option>
             <option value="monthly">Aylık özet</option>
             <option value="progress">Gelişim değerlendirmesi</option>
-            <option value="raw">Ham kayıt dökümü</option>
-          </select>
-        </div>
-        <div>
-          <label>Ton</label>
-          <select id="reportTone">
-            <option value="acad">Akademik + samimi</option>
-            <option value="moreAcad">Daha akademik</option>
-            <option value="moreWarm">Daha samimi</option>
+            <option value="raw">Ham döküm</option>
           </select>
         </div>
         <div>
           <label>Uzunluk</label>
-          <select id="reportLen">
+          <select id="rLen">
             <option value="short">Kısa</option>
             <option value="mid" selected>Orta</option>
             <option value="long">Detaylı</option>
@@ -212,313 +159,109 @@
         </div>
       </div>
 
-      <div class="twoBtns" style="margin-top:12px">
-        <button class="btn primary" id="buildReportPrompt">Rapor Promptu Oluştur + Kopyala</button>
-        <button class="btn" id="downloadWord">Word İndir (.doc)</button>
-        <button class="btn" id="printPdf">PDF İçin Yazdır</button>
+      <div class="twoBtns">
+        <button class="btn primary" id="copyReport">Rapor Prompt Kopyala</button>
+        <button class="btn" id="downloadDoc">Word İndir (.doc)</button>
+        <button class="btn" id="print">PDF için Yazdır</button>
       </div>
 
-      <div class="hr"></div>
-      <div class="hint">
-        <div class="muted">
-          <b>Word (.doc) notu:</b> Bu çıktı Word’de açılan “HTML tabanlı doc” formatıdır (kolay ve stabil).
-          PDF için “Yazdır” ekranından <b>PDF olarak kaydet</b> seçebilirsin.
-        </div>
-      </div>
+      <label>Rapor Prompt Önizleme</label>
+      <pre id="reportPreview"></pre>
     </section>
 
     <section class="card">
-      <h2 style="margin:0 0 8px;font-size:16px">Rapor Prompt Önizlemesi</h2>
-      <div class="muted">Seçtiğin aralığa göre otomatik güncellenir.</div>
-      <pre id="reportPromptPreview" style="margin-top:10px"></pre>
-    </section>
-
-    <section class="card">
-      <h2 style="margin:0 0 8px;font-size:16px">Seçilen Kayıtlar</h2>
       <div class="muted" id="rangeInfo"></div>
-      <pre id="rangeDump" style="margin-top:10px"></pre>
+      <label>Seçilen Kayıt Dökümü</label>
+      <pre id="dump"></pre>
     </section>
   </section>
 
-  <!-- TAB: Ayarlar -->
-  <section id="tab-settings" class="hide">
+  <!-- Yedek -->
+  <section id="backup" class="hide">
     <section class="card">
-      <h2 style="margin:0 0 8px;font-size:16px">Ayarlar</h2>
-      <div class="muted">Bu ayarlar cihazında saklanır.</div>
-
-      <div class="row" style="margin-top:10px">
-        <div>
-          <label>Varsayılan prompt dili</label>
-          <select id="langSelect">
-            <option value="tr" selected>Türkçe</option>
-            <option value="tr2">Türkçe (daha kısa)</option>
-          </select>
-        </div>
-        <div>
-          <label>Günlük promptta “tek paragraf” kuralı</label>
-          <select id="onePara">
-            <option value="yes" selected>Evet</option>
-            <option value="no">Hayır</option>
-          </select>
-        </div>
-        <div>
-          <label>Word çıktısında yazı tipi</label>
-          <select id="wordFont">
-            <option value="Times New Roman" selected>Times New Roman</option>
-            <option value="Calibri">Calibri</option>
-            <option value="Arial">Arial</option>
-          </select>
-        </div>
+      <div class="twoBtns">
+        <button class="btn primary" id="export">Yedek indir (JSON)</button>
+        <button class="btn" id="importBtn">Yedek içe aktar</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none">
+        <button class="btn danger" id="wipe">Tüm veriyi sil</button>
       </div>
-
-      <div class="twoBtns" style="margin-top:12px">
-        <button class="btn primary" id="saveSettings">Ayarları Kaydet</button>
-        <button class="btn" id="resetSettings">Sıfırla</button>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2 style="margin:0 0 8px;font-size:16px">Kullanım</h2>
-      <div class="muted">
-        - Android/Chrome: Menü → <b>Ana ekrana ekle</b><br>
-        - iPhone/iPad Safari: Paylaş → <b>Home Screen’e Ekle</b><br>
-        - Yedek almayı unutma (JSON). Telefon değişince içe aktarabilirsin.
+      <div class="muted" style="margin-top:10px">
+        Telefon değiştirirken JSON yedeğini indirip yeni telefonda içe aktarabilirsin.
       </div>
     </section>
   </section>
-
 </main>
 
 <div class="toast" id="toast"></div>
 
 <script>
-  // --- PWA SW kaydı ---
+(() => {
+  // SW kayıt
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
   }
 
-  // --- State ---
-  const LS_KEY = 'seansnotu_v2';
-  const SETTINGS_KEY = 'seansnotu_settings_v1';
+  const LS = 'seansnotu_clean_v1';
+  const state = load() || { students: ['Öğrenci Seç','Ege','Serra','Nil','Berk'], sessions: [] };
 
-  const defaultState = {
-    students: ["Öğrenci Seç"],
-    sessions: [] // {id, student, date, topics, obs, next}
-  };
-
-  const defaultSettings = {
-    lang: "tr",
-    onePara: "yes",
-    wordFont: "Times New Roman"
-  };
-
-  function loadState() {
-    try {
-      const raw = localStorage.getItem(LS_KEY);
-      if (!raw) return structuredClone(defaultState);
-      const st = JSON.parse(raw);
-      if (!st.students || !st.sessions) return structuredClone(defaultState);
-      return st;
-    } catch {
-      return structuredClone(defaultState);
-    }
-  }
-
-  function saveState(state) {
-    localStorage.setItem(LS_KEY, JSON.stringify(state));
-  }
-
-  function loadSettings() {
-    try {
-      const raw = localStorage.getItem(SETTINGS_KEY);
-      if (!raw) return structuredClone(defaultSettings);
-      const s = JSON.parse(raw);
-      return { ...structuredClone(defaultSettings), ...s };
-    } catch {
-      return structuredClone(defaultSettings);
-    }
-  }
-
-  function saveSettings(s) {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
-  }
-
-  const state = loadState();
-  let settings = loadSettings();
-
-  // --- UI refs (Daily) ---
-  const studentSelect = document.getElementById('studentSelect');
-  const reportStudentSelect = document.getElementById('reportStudentSelect');
-  const dateInput = document.getElementById('dateInput');
-  const newStudentInput = document.getElementById('newStudentInput');
-  const addStudentBtn = document.getElementById('addStudentBtn');
-  const removeStudentBtn = document.getElementById('removeStudentBtn');
-
-  const topicsInput = document.getElementById('topicsInput');
-  const obsInput = document.getElementById('obsInput');
-  const nextInput = document.getElementById('nextInput');
-
-  const saveBtn = document.getElementById('saveBtn');
-  const makePromptBtn = document.getElementById('makePromptBtn');
-  const clearBtn = document.getElementById('clearBtn');
-
-  const searchInput = document.getElementById('searchInput');
-  const sortSelect = document.getElementById('sortSelect');
-  const sessionList = document.getElementById('sessionList');
-  const countInfo = document.getElementById('countInfo');
-  const promptPreview = document.getElementById('promptPreview');
-
-  const toast = document.getElementById('toast');
-
-  const exportBtn = document.getElementById('exportBtn');
-  const importBtn = document.getElementById('importBtn');
-  const importFile = document.getElementById('importFile');
-  const wipeBtn = document.getElementById('wipeBtn');
-
-  // --- UI refs (Report) ---
-  const fromDate = document.getElementById('fromDate');
-  const toDate = document.getElementById('toDate');
-  const reportType = document.getElementById('reportType');
-  const reportTone = document.getElementById('reportTone');
-  const reportLen = document.getElementById('reportLen');
-  const buildReportPrompt = document.getElementById('buildReportPrompt');
-  const downloadWordBtn = document.getElementById('downloadWord');
-  const printPdfBtn = document.getElementById('printPdf');
-  const reportPromptPreview = document.getElementById('reportPromptPreview');
-  const rangeDump = document.getElementById('rangeDump');
-  const rangeInfo = document.getElementById('rangeInfo');
-
-  // --- UI refs (Settings) ---
-  const langSelect = document.getElementById('langSelect');
-  const onePara = document.getElementById('onePara');
-  const wordFont = document.getElementById('wordFont');
-  const saveSettingsBtn = document.getElementById('saveSettings');
-  const resetSettingsBtn = document.getElementById('resetSettings');
-
-  // --- Tabs ---
+  // refs
+  const $ = (id)=>document.getElementById(id);
   const tabs = document.querySelectorAll('.tab');
-  function showTab(key) {
-    document.getElementById('tab-daily').classList.toggle('hide', key !== 'daily');
-    document.getElementById('tab-report').classList.toggle('hide', key !== 'report');
-    document.getElementById('tab-settings').classList.toggle('hide', key !== 'settings');
-    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === key));
-  }
-  tabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
 
-  // --- helpers ---
-  function todayISO() {
+  const student = $('student'), date = $('date'), newStudent=$('newStudent');
+  const topics=$('topics'), obs=$('obs'), next=$('next');
+  const dailyPreview=$('dailyPreview');
+  const saveBtn=$('save'), copyDaily=$('copyDaily'), clearBtn=$('clear');
+  const addStudent=$('addStudent'), delStudent=$('delStudent');
+
+  const search=$('search'), sort=$('sort'), list=$('list'), count=$('count');
+
+  const rStudent=$('rStudent'), from=$('from'), to=$('to'), rType=$('rType'), rLen=$('rLen');
+  const copyReport=$('copyReport'), reportPreview=$('reportPreview'), dump=$('dump'), rangeInfo=$('rangeInfo');
+  const downloadDoc=$('downloadDoc'), printBtn=$('print');
+
+  const exportBtn=$('export'), importBtn=$('importBtn'), importFile=$('importFile'), wipe=$('wipe');
+  const toast=$('toast');
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.style.display='block';
+    clearTimeout(showToast.t);
+    showToast.t=setTimeout(()=>toast.style.display='none',1600);
+  }
+
+  function todayISO(){
     const d = new Date();
     const off = d.getTimezoneOffset();
-    const local = new Date(d.getTime() - off*60*1000);
-    return local.toISOString().slice(0,10);
+    return new Date(d.getTime()-off*60000).toISOString().slice(0,10);
   }
 
-  function uid() {
-    return Math.random().toString(16).slice(2) + Date.now().toString(16);
+  function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
+  function load(){
+    try { return JSON.parse(localStorage.getItem(LS)); } catch { return null; }
   }
 
-  function showToast(msg) {
-    toast.textContent = msg;
-    toast.style.display = 'block';
-    clearTimeout(showToast._t);
-    showToast._t = setTimeout(() => toast.style.display = 'none', 1700);
+  function normalizeBullets(text){
+    return (text||'').split('\n').map(s=>s.trim()).filter(Boolean).map(s=>s.replace(/^[-•\u2022]\s*/,''));
   }
 
-  function normalizeBullets(text) {
-    const lines = (text || '').split('\n').map(s => s.trim()).filter(Boolean);
-    if (!lines.length) return [];
-    return lines.map(l => l.replace(/^[-•\u2022]\s*/, '')).filter(Boolean);
-  }
-
-  function escapeHtml(str) {
-    return String(str || '')
-      .replaceAll('&','&amp;')
-      .replaceAll('<','&lt;')
-      .replaceAll('>','&gt;')
-      .replaceAll('"','&quot;')
-      .replaceAll("'",'&#039;');
-  }
-
-  async function copyText(text) {
-    try {
-      await navigator.clipboard.writeText(text);
-      showToast("Panoya kopyalandı.");
-    } catch {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      ta.remove();
-      showToast("Panoya kopyalandı.");
-    }
-  }
-
-  function countLines(text) {
-    return normalizeBullets(text).length || (String(text||'').trim()? 1 : 0);
-  }
-
-  // --- Cümle bankası (rapor promptuna “değişken, özgün” dil için ipucu) ---
-  const sentenceBank = {
-    participation: [
-      "Etkinliklere katılım düzeyi genel olarak istikrarlı seyretti.",
-      "Seans boyunca katılımı destekleyen yapılandırılmış yönergelerden olumlu yararlandı.",
-      "Zorlandığı anlarda kısa ipuçlarıyla yeniden göreve dönebildi."
-    ],
-    attention: [
-      "Dikkatini sürdürme süresinde oturum içinde dalgalanmalar gözlendi.",
-      "Uyarıcı kontrolü ve dikkat yöneltme becerilerinde destekle ilerleme sağlandı.",
-      "Dikkat sürekliliğini artırmak amacıyla kısa, ardışık görevler etkili oldu."
-    ],
-    regulation: [
-      "Dürtü kontrolü ve bekleme becerilerinde kademeli gelişim izlendi.",
-      "Sınır alma süreçlerinde hatırlatmaya ihtiyaç duyduğu anlar oldu.",
-      "Öz düzenleme gerektiren görevlerde model olma ve pekiştirme yararlı oldu."
-    ],
-    progress: [
-      "Hedeflenen kazanımlarda başlangıç düzeyine göre daha işlevsel yanıtlar gözlendi.",
-      "Beceri genellemesi için tekrar ve farklı bağlamlarda uygulama ihtiyacı sürmektedir.",
-      "Performansını destekleyen ipuçları azaltıldıkça bağımsızlık düzeyi artma eğilimindedir."
-    ]
-  };
-
-  function pick3(arr, seed) {
-    // deterministik mini seçim (aynı aralıkta benzer prompt üretmesin diye)
-    const a = [...arr];
-    let x = seed || 7;
-    a.sort(() => {
-      x = (x * 9301 + 49297) % 233280;
-      return (x / 233280) - 0.5;
-    });
-    return a.slice(0,3);
-  }
-
-  // --- Prompt builders ---
-  function buildDailyPrompt({student, date, topics, obs, next}) {
-    const bullets = normalizeBullets(topics);
-    const topicsBlock = bullets.length ? bullets.map(b => `- ${b}`).join('\n')
-      : (topics || '').trim() ? topics.trim() : "- (konu girilmedi)";
-
-    const obsText = (obs || '').trim() || "(gözlem girilmedi)";
-    const nextText = (next || '').trim() || "(hedef girilmedi)";
-
-    const oneParaRule = settings.onePara === "yes"
-      ? "- Mümkünse tek paragraf yaz; en fazla 2 kısa paragraf.\n"
-      : "- Paragraf yapısını uygun görürsen 2-3 paragrafa bölebilirsin.\n";
-
-    const langVariant = settings.lang === "tr2"
-      ? "Kriterler:\n- Akademik ama samimi.\n- Gereksiz uzatma; net ve akıcı.\n"
-      : "Kriterler:\n- Akademik ama samimi bir ton kullan.\n- Özgün cümleler kur; tekrar eden kalıp ifadelerden kaçın.\n";
-
+  function buildDailyPrompt(obj){
+    const b = normalizeBullets(obj.topics);
+    const topicsBlock = b.length ? b.map(x=>`- ${x}`).join('\n') : (obj.topics||'').trim() || "- (konu girilmedi)";
+    const obsText = (obj.obs||'').trim() || "(gözlem girilmedi)";
+    const nextText = (obj.next||'').trim() || "(hedef girilmedi)";
     return `Aşağıdaki ham seans verilerini kullanarak Türkçe bir “Günlük Seans Notu” yaz.
 
-${langVariant}${oneParaRule}- Çalışılan alanları ve gözlemleri doğal biçimde bütünleştir.
-- Son cümlede bir sonraki oturum odağını/öneriyi belirt.
+Kriterler:
+- Akademik ama samimi bir ton kullan.
+- Özgün cümleler kur; tekrar eden kalıp ifadelerden kaçın.
+- Mümkünse tek paragraf (en fazla 2 kısa paragraf).
+- Son cümlede bir sonraki odak/hedefi belirt.
 - Öğrenci adı ve tarih metinde geçsin.
 
 HAM VERİ:
-Öğrenci: ${student}
-Tarih: ${date}
+Öğrenci: ${obj.student}
+Tarih: ${obj.date}
 
 Çalışılan Konular:
 ${topicsBlock}
@@ -531,566 +274,277 @@ ${nextText}
 `;
   }
 
-  function inRange(dateStr, fromStr, toStr) {
-    if (!dateStr) return false;
-    const d = dateStr;
-    if (fromStr && d < fromStr) return false;
-    if (toStr && d > toStr) return false;
+  function inRange(d, f, t){
+    if (f && d < f) return false;
+    if (t && d > t) return false;
     return true;
   }
 
-  function getRangeSessions() {
-    const s = reportStudentSelect.value;
-    const f = fromDate.value;
-    const t = toDate.value;
+  function getRangeSessions(){
+    const who = rStudent.value;
     return state.sessions
-      .filter(x => (s === "__ALL__" ? true : x.student === s))
-      .filter(x => inRange(x.date, f, t))
-      .sort((a,b) => (a.date||'').localeCompare(b.date||''));
+      .filter(s => who === '__ALL__' ? true : s.student === who)
+      .filter(s => inRange(s.date, from.value, to.value))
+      .sort((a,b)=> (a.date||'').localeCompare(b.date||''));
   }
 
-  function buildRangeDumpText(list) {
+  function dumpText(list){
     if (!list.length) return "(Seçilen aralıkta kayıt yok.)";
-    return list.map(x => {
-      const bullets = normalizeBullets(x.topics);
-      const topics = bullets.length ? bullets.map(b => `- ${b}`).join('\n') : (x.topics||'').trim();
-      return `Tarih: ${x.date}
-Öğrenci: ${x.student}
-Çalışılan Konular:
-${topics || "- (boş)"}
-Kısa Gözlem:
-${(x.obs||"").trim() || "(boş)"}
-Bir Sonraki Odak/Hedef:
-${(x.next||"").trim() || "(boş)"}
+    return list.map(s=>{
+      const b = normalizeBullets(s.topics);
+      const t = b.length ? b.map(x=>`- ${x}`).join('\n') : (s.topics||'').trim() || "- (boş)";
+      return `Tarih: ${s.date}
+Öğrenci: ${s.student}
+Konular:
+${t}
+Gözlem:
+${(s.obs||'').trim() || "(boş)"}
+Hedef:
+${(s.next||'').trim() || "(boş)"}
 ---`;
     }).join('\n\n');
   }
 
-  function toneText() {
-    const v = reportTone.value;
-    if (v === "moreAcad") return "Ton: akademik, rapor diline yakın; duygusal ifadeleri minimal tut.";
-    if (v === "moreWarm") return "Ton: samimi, motive edici; akademik tutarlılığı koru.";
-    return "Ton: akademik ama samimi; doğal ve profesyonel bir anlatım.";
-  }
-
-  function lenText() {
-    const v = reportLen.value;
-    if (v === "short") return "Uzunluk: kısa (5-8 cümle).";
-    if (v === "long") return "Uzunluk: detaylı (2-4 paragraf, gerektiğinde maddeleme).";
-    return "Uzunluk: orta (1-2 paragraf).";
-  }
-
-  function reportGoalText() {
-    const v = reportType.value;
-    if (v === "weekly") return "Amaç: haftalık seansların genel özetini çıkar; öne çıkan kazanımlar ve ihtiyaçlar.";
-    if (v === "monthly") return "Amaç: aylık eğilimleri değerlendir; gelişim alanları, zorlanmalar, öneriler.";
-    if (v === "progress") return "Amaç: gelişim değerlendirmesi yaz; güçlü yönler, destek gereksinimleri, hedefler.";
-    return "Amaç: ham kayıtları düzenli bir döküm olarak sun (yorum eklemeden).";
-  }
-
-  function buildReportPrompt() {
+  function buildReportPrompt(){
     const list = getRangeSessions();
-    const s = reportStudentSelect.value === "__ALL__" ? "TÜM ÖĞRENCİLER" : reportStudentSelect.value;
-    const f = fromDate.value || "(başlangıç yok)";
-    const t = toDate.value || "(bitiş yok)";
+    const who = rStudent.value === '__ALL__' ? 'TÜM ÖĞRENCİLER' : rStudent.value;
+    const f = from.value || "(başlangıç yok)";
+    const t = to.value || "(bitiş yok)";
+    const len = rLen.value === 'short' ? 'Kısa (6-10 cümle).' : rLen.value === 'long' ? 'Detaylı (2-4 paragraf).' : 'Orta (1-2 paragraf).';
 
-    const dump = buildRangeDumpText(list);
+    if (rType.value === 'raw'){
+      return `Aşağıdaki seans kayıtlarını yorum eklemeden düzenle (Tarih/Öğrenci/Konular/Gözlem/Hedef).
 
-    if (reportType.value === "raw") {
-      return `Aşağıdaki “Seans Kayıtları” metnini düzenle:
-- Tarihe göre sıralı kalsın.
-- Her kayıt net başlıklarla ayrışsın (Tarih / Öğrenci / Konular / Gözlem / Hedef).
-- Yorum ekleme, sadece düzenle.
+KAPSAM: ${who} | ${f} – ${t}
 
-KAPSAM:
-Öğrenci: ${s}
-Tarih aralığı: ${f} – ${t}
-
-SEANS KAYITLARI:
-${dump}
+KAYITLAR:
+${dumpText(list)}
 `;
     }
 
-    const seed = (list.length * 13) + (f.replaceAll('-','')|0) + (t.replaceAll('-','')|0);
-    const hints = [
-      ...pick3(sentenceBank.participation, seed),
-      ...pick3(sentenceBank.attention, seed+3),
-      ...pick3(sentenceBank.regulation, seed+6),
-      ...pick3(sentenceBank.progress, seed+9)
-    ].slice(0,6);
+    const goal = rType.value === 'weekly' ? 'Haftalık özet yaz.' : rType.value === 'monthly' ? 'Aylık eğilimleri değerlendir.' : 'Gelişim değerlendirmesi yaz.';
+    return `Aşağıdaki seans kayıtlarına dayanarak Türkçe bir rapor yaz.
 
-    return `Aşağıdaki seans kayıtlarını temel alarak Türkçe bir rapor yaz.
+Amaç: ${goal}
+Uzunluk: ${len}
+Dil: akademik ama samimi; tekrar eden kalıplardan kaçın.
+Sonunda 3-5 maddelik “Önerilen bir sonraki odaklar” ekle.
 
-${reportGoalText()}
-${toneText()}
-${lenText()}
+KAPSAM: ${who} | ${f} – ${t}
 
-Yazım ölçütleri:
-- Özgün cümleler kur; tekrar eden kalıplardan kaçın.
-- Çalışılan alanları “tema” bazında grupla (örn: dikkat, yürütücü işlevler, dil/okuma, matematik, sosyal beceriler).
-- Gözlemleri nesnel bir dille raporla (katılım, dikkat, dürtüsellik, yönerge takibi, genelleme).
-- Son bölümde 3-5 maddelik “Önerilen bir sonraki odaklar” ver.
-
-Cümle çeşitliliği için yardımcı ifadeler (zorunlu değil, ilham):
-- ${hints.join("\n- ")}
-
-KAPSAM:
-Öğrenci: ${s}
-Tarih aralığı: ${f} – ${t}
-
-SEANS KAYITLARI (HAM):
-${dump}
+HAM KAYITLAR:
+${dumpText(list)}
 `;
   }
 
-  // --- Word(.doc) builder (HTML doc) ---
-  function buildWordDocHtml(title, bodyHtml) {
-    const font = settings.wordFont || "Times New Roman";
-    return `<!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<title>${escapeHtml(title)}</title>
-<style>
-  body{font-family:${font}, serif; font-size:12pt; line-height:1.35; }
-  h1{font-size:16pt; margin:0 0 10pt 0;}
-  h2{font-size:13pt; margin:14pt 0 6pt 0;}
-  .meta{font-size:11pt; color:#333; margin-bottom:10pt;}
-  .box{border:1px solid #ddd; padding:10pt; border-radius:8pt; margin:10pt 0;}
-  .muted{color:#444;}
-  ul{margin:6pt 0 6pt 18pt;}
-  p{margin:6pt 0; text-align:justify;}
-  .sep{height:1px;background:#eee;margin:12pt 0;}
-</style>
-</head>
-<body>
-${bodyHtml}
-</body>
-</html>`;
+  async function copy(text){
+    try { await navigator.clipboard.writeText(text); showToast("Kopyalandı."); }
+    catch { showToast("Kopyalanamadı (izin)."); }
   }
 
-  function sessionsToWordBody(list, scopeTitle) {
-    const f = fromDate.value || "";
-    const t = toDate.value || "";
-    const meta = `${f && t ? `${f} – ${t}` : (f || t ? (f ? `Başlangıç: ${f}` : `Bitiş: ${t}`) : "Tarih aralığı: belirtilmedi")}`;
-
-    const items = list.length ? list.map(x => {
-      const bullets = normalizeBullets(x.topics);
-      const topicsHtml = bullets.length
-        ? `<ul>${bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>`
-        : `<p class="muted">${escapeHtml((x.topics||"").trim() || "(konu yok)")}</p>`;
-
-      const obs = (x.obs||"").trim() || "(gözlem yok)";
-      const next = (x.next||"").trim() || "(hedef yok)";
-
-      return `
-<div class="box">
-  <h2>${escapeHtml(x.student)} — ${escapeHtml(x.date)}</h2>
-  <p><b>Çalışılan Konular:</b></p>
-  ${topicsHtml}
-  <p><b>Kısa Gözlem:</b> ${escapeHtml(obs)}</p>
-  <p><b>Bir Sonraki Odak/Hedef:</b> ${escapeHtml(next)}</p>
-</div>`;
-    }).join("\n") : `<p>(Seçilen aralıkta kayıt yok.)</p>`;
-
-    return `<h1>${escapeHtml(scopeTitle)}</h1>
-<div class="meta">${escapeHtml(meta)}</div>
-${items}`;
-  }
-
-  function downloadFile(filename, content, mime) {
-    const blob = new Blob([content], {type: mime});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    setTimeout(()=>URL.revokeObjectURL(url), 800);
-  }
-
-  function openPrintWindow(title, htmlBody) {
-    const font = settings.wordFont || "Times New Roman";
-    const html = `<!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<title>${escapeHtml(title)}</title>
-<style>
-  body{font-family:${font}, serif; font-size:12pt; line-height:1.35; padding:18px;}
-  h1{font-size:16pt; margin:0 0 10pt 0;}
-  h2{font-size:13pt; margin:14pt 0 6pt 0;}
-  .meta{font-size:11pt; color:#333; margin-bottom:10pt;}
-  .box{border:1px solid #ddd; padding:10pt; border-radius:8pt; margin:10pt 0;}
-  ul{margin:6pt 0 6pt 18pt;}
-  p{margin:6pt 0; text-align:justify;}
-</style>
-</head>
-<body>
-${htmlBody}
-</body>
-</html>`;
-    const w = window.open("", "_blank");
-    if (!w) return showToast("Pop-up engellendi.");
-    w.document.open();
-    w.document.write(html);
-    w.document.close();
-    w.focus();
-    setTimeout(()=>w.print(), 300);
-  }
-
-  // --- render ---
-  function renderStudents(selectEl, includeAll=false) {
-    selectEl.innerHTML = '';
-    if (includeAll) {
-      const optAll = document.createElement('option');
-      optAll.value = "__ALL__";
-      optAll.textContent = "Tümü";
-      selectEl.appendChild(optAll);
-    }
-    state.students.forEach((s, idx) => {
-      const opt = document.createElement('option');
-      opt.value = s;
-      opt.textContent = s;
-      if (!includeAll && idx === 0) opt.disabled = true;
-      if (includeAll && idx === 0) return; // "Öğrenci Seç" raporda gereksiz
-      selectEl.appendChild(opt);
+  function renderStudents(){
+    student.innerHTML='';
+    state.students.forEach((s,i)=>{
+      const o=document.createElement('option');
+      o.value=s; o.textContent=s;
+      if (i===0) o.disabled=true;
+      student.appendChild(o);
     });
+    if (state.students.includes(localStorage.getItem('lastStudent'))) student.value = localStorage.getItem('lastStudent');
 
-    // seçimi koru
-    const saved = localStorage.getItem(selectEl.id === "studentSelect" ? 'seansnotu_last_student' : 'seansnotu_last_report_student');
-    if (saved && Array.from(selectEl.options).some(o=>o.value===saved)) selectEl.value = saved;
+    rStudent.innerHTML='';
+    const all=document.createElement('option'); all.value='__ALL__'; all.textContent='Tümü';
+    rStudent.appendChild(all);
+    state.students.slice(1).forEach(s=>{
+      const o=document.createElement('option');
+      o.value=s; o.textContent=s;
+      rStudent.appendChild(o);
+    });
   }
 
-  function filteredSessions() {
-    const q = (searchInput.value || '').trim().toLowerCase();
-    let list = [...state.sessions];
-
-    if (q) {
-      list = list.filter(s =>
-        (s.student || '').toLowerCase().includes(q) ||
-        (s.date || '').toLowerCase().includes(q)
-      );
-    }
-    const sort = sortSelect.value;
-    list.sort((a,b) => sort === 'new'
-      ? (b.date || '').localeCompare(a.date || '')
-      : (a.date || '').localeCompare(b.date || '')
-    );
-    return list;
+  function renderDailyPreview(){
+    const obj = { student: student.value, date: date.value, topics: topics.value, obs: obs.value, next: next.value };
+    dailyPreview.textContent = buildDailyPrompt(obj);
   }
 
-  function renderSessions() {
-    const list = filteredSessions();
-    countInfo.textContent = `${list.length} kayıt gösteriliyor (toplam: ${state.sessions.length}).`;
-    sessionList.innerHTML = '';
+  function renderList(){
+    const q=(search.value||'').trim().toLowerCase();
+    let arr=[...state.sessions];
+    if (q) arr=arr.filter(s => (s.student||'').toLowerCase().includes(q) || (s.date||'').includes(q));
+    arr.sort((a,b)=> sort.value==='new' ? (b.date||'').localeCompare(a.date||'') : (a.date||'').localeCompare(b.date||''));
+    count.textContent = `${arr.length} kayıt gösteriliyor (toplam ${state.sessions.length}).`;
+    list.innerHTML='';
+    if (!arr.length){ list.innerHTML = `<div class="muted">Kayıt yok.</div>`; return; }
 
-    if (!list.length) {
-      sessionList.innerHTML = `<div class="muted">Henüz kayıt yok. Sol taraftan seans kaydı ekleyebilirsin.</div>`;
-      return;
-    }
-
-    for (const s of list) {
-      const div = document.createElement('div');
-      div.className = 'item';
+    arr.forEach(s=>{
+      const div=document.createElement('div');
+      div.className='item';
       div.innerHTML = `
-        <div class="row" style="gap:10px">
-          <div style="flex:2">
-            <h3>${escapeHtml(s.student)} <span class="muted">· ${escapeHtml(s.date)}</span></h3>
-            <div class="meta">
-              <span>Konular: ${countLines(s.topics)}</span>
-              <span>ID: ${s.id.slice(0,6)}</span>
-            </div>
-          </div>
-          <div style="display:flex;gap:10px;justify-content:flex-end;flex:1">
-            <button class="btn" data-act="edit" data-id="${s.id}">Düzenle</button>
-            <button class="btn" data-act="copy" data-id="${s.id}">Prompt Kopyala</button>
-            <button class="btn danger" data-act="del" data-id="${s.id}">Sil</button>
-          </div>
+        <h3>${s.student} <span class="muted">· ${s.date}</span></h3>
+        <div class="meta"><span>ID: ${s.id.slice(0,6)}</span></div>
+        <div class="twoBtns">
+          <button class="btn" data-act="edit" data-id="${s.id}">Düzenle</button>
+          <button class="btn" data-act="copy" data-id="${s.id}">Prompt</button>
+          <button class="btn danger" data-act="del" data-id="${s.id}">Sil</button>
         </div>
-        <pre>${escapeHtml(buildDailyPrompt(s))}</pre>
       `;
-      sessionList.appendChild(div);
-    }
-  }
-
-  function setPromptPreview() {
-    const student = studentSelect.value;
-    const date = dateInput.value || todayISO();
-    const prompt = buildDailyPrompt({
-      student,
-      date,
-      topics: topicsInput.value,
-      obs: obsInput.value,
-      next: nextInput.value
+      list.appendChild(div);
     });
-    promptPreview.textContent = prompt;
   }
 
-  function refreshReportPreview() {
-    const list = getRangeSessions();
-    const f = fromDate.value || "(başlangıç yok)";
-    const t = toDate.value || "(bitiş yok)";
-    const who = reportStudentSelect.value === "__ALL__" ? "Tümü" : reportStudentSelect.value;
-    rangeInfo.textContent = `${who} | ${f} – ${t} | ${list.length} kayıt`;
-
-    rangeDump.textContent = buildRangeDumpText(list);
-    reportPromptPreview.textContent = buildReportPrompt();
+  function renderReport(){
+    const r = getRangeSessions();
+    rangeInfo.textContent = `${rStudent.value==='__ALL__'?'Tümü':rStudent.value} | ${from.value||'-'} → ${to.value||'-'} | ${r.length} kayıt`;
+    dump.textContent = dumpText(r);
+    reportPreview.textContent = buildReportPrompt();
   }
 
-  // --- init ---
-  dateInput.value = todayISO();
-
-  // rapor tarihleri için: son 7 gün varsayılan
-  const today = todayISO();
-  toDate.value = today;
-  const d = new Date();
-  d.setDate(d.getDate() - 7);
-  const off = d.getTimezoneOffset();
-  const local = new Date(d.getTime() - off*60*1000);
-  fromDate.value = local.toISOString().slice(0,10);
-
-  // settings UI init
-  langSelect.value = settings.lang;
-  onePara.value = settings.onePara;
-  wordFont.value = settings.wordFont;
-
-  renderStudents(studentSelect, false);
-  renderStudents(reportStudentSelect, true);
-
-  if (state.students.length === 1) {
-    state.students.push("Ege","Serra","Nil","Berk");
-    saveState(state);
-    renderStudents(studentSelect, false);
-    renderStudents(reportStudentSelect, true);
-  }
-
-  setPromptPreview();
-  renderSessions();
-  refreshReportPreview();
-
-  // --- events (Daily) ---
-  studentSelect.addEventListener('change', () => {
-    localStorage.setItem('seansnotu_last_student', studentSelect.value);
-    setPromptPreview();
-  });
-
-  [dateInput, topicsInput, obsInput, nextInput].forEach(el => el.addEventListener('input', setPromptPreview));
-
-  addStudentBtn.addEventListener('click', () => {
-    const name = (newStudentInput.value || '').trim();
-    if (!name) return showToast("Öğrenci adı yaz.");
-    if (state.students.includes(name)) return showToast("Bu öğrenci zaten var.");
-    state.students.push(name);
-    saveState(state);
-    newStudentInput.value = '';
-    renderStudents(studentSelect, false);
-    renderStudents(reportStudentSelect, true);
-    studentSelect.value = name;
-    localStorage.setItem('seansnotu_last_student', name);
-    showToast("Öğrenci eklendi.");
-    setPromptPreview();
-  });
-
-  removeStudentBtn.addEventListener('click', () => {
-    const s = studentSelect.value;
-    if (!s || s === "Öğrenci Seç") return showToast("Silinecek öğrenci seç.");
-    state.students = state.students.filter(x => x !== s);
-    saveState(state);
-    renderStudents(studentSelect, false);
-    renderStudents(reportStudentSelect, true);
-    studentSelect.value = "Öğrenci Seç";
-    showToast("Öğrenci silindi.");
-    setPromptPreview();
-  });
-
-  saveBtn.addEventListener('click', () => {
-    const student = studentSelect.value;
-    if (!student || student === "Öğrenci Seç") return showToast("Öğrenci seç.");
-    const date = dateInput.value || todayISO();
-
-    const entry = { id: uid(), student, date, topics: topicsInput.value, obs: obsInput.value, next: nextInput.value };
-    state.sessions.push(entry);
-    saveState(state);
-    renderSessions();
-    refreshReportPreview();
-    showToast("Kayıt eklendi.");
-  });
-
-  clearBtn.addEventListener('click', () => {
-    topicsInput.value = '';
-    obsInput.value = '';
-    nextInput.value = '';
-    setPromptPreview();
-    showToast("Temizlendi.");
-  });
-
-  makePromptBtn.addEventListener('click', async () => {
-    const student = studentSelect.value;
-    if (!student || student === "Öğrenci Seç") return showToast("Öğrenci seç.");
-    await copyText(promptPreview.textContent);
-  });
-
-  searchInput.addEventListener('input', renderSessions);
-  sortSelect.addEventListener('change', renderSessions);
-
-  sessionList.addEventListener('click', async (e) => {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    const id = btn.getAttribute('data-id');
-    const act = btn.getAttribute('data-act');
-    const idx = state.sessions.findIndex(x => x.id === id);
-    if (idx < 0) return;
-    const s = state.sessions[idx];
-
-    if (act === 'del') {
-      state.sessions.splice(idx,1);
-      saveState(state);
-      renderSessions();
-      refreshReportPreview();
-      showToast("Silindi.");
-    } else if (act === 'edit') {
-      if (!state.students.includes(s.student)) state.students.push(s.student);
-      saveState(state);
-      renderStudents(studentSelect, false);
-      renderStudents(reportStudentSelect, true);
-      studentSelect.value = s.student;
-      dateInput.value = s.date;
-      topicsInput.value = s.topics || '';
-      obsInput.value = s.obs || '';
-      nextInput.value = s.next || '';
-      setPromptPreview();
-      showToast("Düzenleme için forma yüklendi.");
-    } else if (act === 'copy') {
-      await copyText(buildDailyPrompt(s));
-    }
-  });
-
-  // --- backup import/export ---
-  exportBtn.addEventListener('click', async () => {
-    const data = JSON.stringify({ state, settings }, null, 2);
-    const name = `seansnotu_yedek_${todayISO()}.json`;
-    downloadFile(name, data, 'application/json');
-    showToast("Yedek indirildi.");
-  });
-
-  importBtn.addEventListener('click', () => importFile.click());
-  importFile.addEventListener('change', async () => {
-    const file = importFile.files?.[0];
-    if (!file) return;
-    try {
-      const text = await file.text();
-      const incoming = JSON.parse(text);
-
-      // esnek: eski yedekler sadece state olabilir
-      const incomingState = incoming.state ? incoming.state : incoming;
-      const incomingSettings = incoming.settings ? incoming.settings : null;
-
-      if (!incomingState.students || !incomingState.sessions) throw new Error("format");
-
-      const mergedStudents = Array.from(new Set([...state.students, ...incomingState.students]));
-      const mergedSessions = [...state.sessions, ...incomingState.sessions].map(s => ({
-        id: s.id || uid(),
-        student: s.student || "Bilinmiyor",
-        date: s.date || todayISO(),
-        topics: s.topics || "",
-        obs: s.obs || "",
-        next: s.next || ""
-      }));
-
-      state.students = mergedStudents;
-      state.sessions = mergedSessions;
-
-      if (incomingSettings) {
-        settings = { ...settings, ...incomingSettings };
-        saveSettings(settings);
-        langSelect.value = settings.lang;
-        onePara.value = settings.onePara;
-        wordFont.value = settings.wordFont;
-      }
-
-      saveState(state);
-      renderStudents(studentSelect, false);
-      renderStudents(reportStudentSelect, true);
-      renderSessions();
-      refreshReportPreview();
-      showToast("İçe aktarıldı.");
-    } catch {
-      showToast("İçe aktarma başarısız (JSON).");
-    } finally {
-      importFile.value = '';
-    }
-  });
-
-  wipeBtn.addEventListener('click', () => {
-    if (!confirm("Tüm kayıtlar silinsin mi?")) return;
-    state.students = ["Öğrenci Seç"];
-    state.sessions = [];
-    saveState(state);
-    renderStudents(studentSelect, false);
-    renderStudents(reportStudentSelect, true);
-    renderSessions();
-    refreshReportPreview();
-    setPromptPreview();
-    showToast("Tümü silindi.");
-  });
-
-  // --- Report events ---
-  [reportStudentSelect, fromDate, toDate, reportType, reportTone, reportLen].forEach(el => {
-    el.addEventListener('change', () => {
-      if (el === reportStudentSelect) localStorage.setItem('seansnotu_last_report_student', reportStudentSelect.value);
-      refreshReportPreview();
+  // tabs
+  tabs.forEach(t=>{
+    t.addEventListener('click', ()=>{
+      tabs.forEach(x=>x.classList.toggle('active', x===t));
+      ['daily','report','backup'].forEach(id => $(id).classList.toggle('hide', id !== t.dataset.tab));
+      renderReport();
     });
-    el.addEventListener('input', refreshReportPreview);
   });
 
-  buildReportPrompt.addEventListener('click', async () => {
-    const prompt = buildReportPrompt();
-    await copyText(prompt);
+  // init
+  date.value = todayISO();
+  to.value = todayISO();
+  const d=new Date(); d.setDate(d.getDate()-7);
+  const off=d.getTimezoneOffset();
+  from.value = new Date(d.getTime()-off*60000).toISOString().slice(0,10);
+
+  renderStudents();
+  renderDailyPreview();
+  renderList();
+  renderReport();
+
+  // events
+  student.addEventListener('change', ()=>{ localStorage.setItem('lastStudent', student.value); renderDailyPreview(); });
+  [date,topics,obs,next].forEach(el=>el.addEventListener('input', renderDailyPreview));
+
+  addStudent.addEventListener('click', ()=>{
+    const n=(newStudent.value||'').trim();
+    if(!n) return showToast("Öğrenci adı yaz.");
+    if(state.students.includes(n)) return showToast("Zaten var.");
+    state.students.push(n); newStudent.value='';
+    save(); renderStudents(); student.value=n; localStorage.setItem('lastStudent', n);
+    showToast("Eklendi."); renderDailyPreview(); renderReport();
   });
 
-  downloadWordBtn.addEventListener('click', () => {
-    const list = getRangeSessions();
-    const who = reportStudentSelect.value === "__ALL__" ? "Tum_Ogrenciler" : reportStudentSelect.value;
-    const f = fromDate.value || "baslangicYok";
-    const t = toDate.value || "bitisYok";
-    const title = `Seans_Dokumu_${who}_${f}_${t}`;
-    const body = sessionsToWordBody(list, "Seans Dökümü");
-    const doc = buildWordDocHtml(title, body);
-    downloadFile(`${title}.doc`, doc, 'application/msword');
+  delStudent.addEventListener('click', ()=>{
+    if(student.value==='Öğrenci Seç') return showToast("Öğrenci seç.");
+    state.students = state.students.filter(x=>x!==student.value);
+    save(); renderStudents(); student.value='Öğrenci Seç';
+    showToast("Silindi."); renderDailyPreview(); renderReport();
+  });
+
+  saveBtn.addEventListener('click', ()=>{
+    if(student.value==='Öğrenci Seç') return showToast("Öğrenci seç.");
+    const obj={ id: Math.random().toString(16).slice(2)+Date.now().toString(16),
+      student: student.value, date: date.value, topics: topics.value, obs: obs.value, next: next.value };
+    state.sessions.push(obj); save(); renderList(); renderReport(); showToast("Kaydedildi.");
+  });
+
+  copyDaily.addEventListener('click', ()=> copy(dailyPreview.textContent));
+  clearBtn.addEventListener('click', ()=>{ topics.value=''; obs.value=''; next.value=''; renderDailyPreview(); showToast("Temizlendi."); });
+
+  search.addEventListener('input', renderList);
+  sort.addEventListener('change', renderList);
+
+  list.addEventListener('click', (e)=>{
+    const b=e.target.closest('button'); if(!b) return;
+    const id=b.dataset.id, act=b.dataset.act;
+    const i=state.sessions.findIndex(x=>x.id===id); if(i<0) return;
+    const s=state.sessions[i];
+    if(act==='del'){ state.sessions.splice(i,1); save(); renderList(); renderReport(); showToast("Silindi."); }
+    if(act==='copy'){ copy(buildDailyPrompt(s)); }
+    if(act==='edit'){
+      student.value=s.student; date.value=s.date; topics.value=s.topics||''; obs.value=s.obs||''; next.value=s.next||'';
+      localStorage.setItem('lastStudent', s.student);
+      renderDailyPreview(); showToast("Forma yüklendi.");
+    }
+  });
+
+  [rStudent,from,to,rType,rLen].forEach(el=>{
+    el.addEventListener('change', renderReport);
+    el.addEventListener('input', renderReport);
+  });
+
+  copyReport.addEventListener('click', ()=> copy(buildReportPrompt()));
+
+  // Word(.doc)
+  downloadDoc.addEventListener('click', ()=>{
+    const r=getRangeSessions();
+    const title=`SeansDokumu_${rStudent.value==='__ALL__'?'Tum':rStudent.value}_${from.value||'x'}_${to.value||'y'}`;
+    const body = r.length ? r.map(s=>{
+      const b=normalizeBullets(s.topics);
+      const topicsHtml = b.length ? `<ul>${b.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>` : `<p>${escapeHtml((s.topics||'').trim()||'(boş)')}</p>`;
+      return `<h3>${escapeHtml(s.student)} — ${escapeHtml(s.date)}</h3>
+      <p><b>Konular:</b></p>${topicsHtml}
+      <p><b>Gözlem:</b> ${escapeHtml((s.obs||'').trim()||'(boş)')}</p>
+      <p><b>Hedef:</b> ${escapeHtml((s.next||'').trim()||'(boş)')}</p><hr/>`;
+    }).join('') : `<p>(Kayıt yok)</p>`;
+
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${title}</title></head>
+    <body style="font-family:Times New Roman,serif;font-size:12pt;line-height:1.35">${body}</body></html>`;
+
+    const blob=new Blob([html],{type:'application/msword'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download=`${title}.doc`; a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),800);
     showToast("Word indirildi.");
   });
 
-  printPdfBtn.addEventListener('click', () => {
-    const list = getRangeSessions();
-    const who = reportStudentSelect.value === "__ALL__" ? "Tüm Öğrenciler" : reportStudentSelect.value;
-    const body = sessionsToWordBody(list, `Seans Dökümü — ${who}`);
-    openPrintWindow("Seans Dökümü", body);
+  function escapeHtml(str){
+    return String(str||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#039;");
+  }
+
+  // PDF print
+  printBtn.addEventListener('click', ()=>{
+    const r=getRangeSessions();
+    const html = `<html><head><meta charset="utf-8"><title>Seans Dökümü</title></head>
+      <body style="font-family:Times New Roman,serif;font-size:12pt;line-height:1.35;padding:16px">
+      <h2>Seans Dökümü</h2><div>${escapeHtml(rangeInfo.textContent)}</div><hr/>
+      <pre style="white-space:pre-wrap">${escapeHtml(dumpText(r))}</pre>
+      </body></html>`;
+    const w=window.open('','_blank'); if(!w) return showToast("Pop-up engellendi.");
+    w.document.open(); w.document.write(html); w.document.close(); w.focus();
+    setTimeout(()=>w.print(),300);
   });
 
-  // --- Settings events ---
-  saveSettingsBtn.addEventListener('click', () => {
-    settings.lang = langSelect.value;
-    settings.onePara = onePara.value;
-    settings.wordFont = wordFont.value;
-    saveSettings(settings);
-    setPromptPreview();
-    refreshReportPreview();
-    showToast("Ayarlar kaydedildi.");
+  // Backup
+  exportBtn.addEventListener('click', ()=>{
+    const data = JSON.stringify(state, null, 2);
+    const blob=new Blob([data],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download=`seansnotu_yedek_${todayISO()}.json`; a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),800);
+    showToast("Yedek indirildi.");
   });
 
-  resetSettingsBtn.addEventListener('click', () => {
-    settings = structuredClone(defaultSettings);
-    saveSettings(settings);
-    langSelect.value = settings.lang;
-    onePara.value = settings.onePara;
-    wordFont.value = settings.wordFont;
-    setPromptPreview();
-    refreshReportPreview();
-    showToast("Ayarlar sıfırlandı.");
+  importBtn.addEventListener('click', ()=> importFile.click());
+  importFile.addEventListener('change', async ()=>{
+    const f=importFile.files && importFile.files[0]; if(!f) return;
+    try{
+      const text = await f.text();
+      const incoming = JSON.parse(text);
+      if(!incoming.students || !incoming.sessions) throw new Error();
+      state.students = Array.from(new Set([...state.students, ...incoming.students]));
+      state.sessions = [...state.sessions, ...incoming.sessions];
+      save(); renderStudents(); renderList(); renderReport();
+      showToast("İçe aktarıldı.");
+    }catch{ showToast("JSON hatalı."); }
+    importFile.value='';
   });
 
-  // ilk açılış rapor önizleme
-  refreshReportPreview();
+  wipe.addEventListener('click', ()=>{
+    if(!confirm("Tüm veriler silinsin mi?")) return;
+    localStorage.removeItem(LS);
+    location.reload();
+  });
+})();
 </script>
 </body>
 </html>
